@@ -1,4 +1,6 @@
 <?php
+
+use think\facade\Env;
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
 // +----------------------------------------------------------------------
@@ -11,27 +13,27 @@
 
 return [
     // 数据库类型
-    'type'            => 'mysql',
+    'type'            => Env::get('DATABASE.TYPE'),
     // 服务器地址
-    'hostname'        => '127.0.0.1',
+    'hostname'        => Env::get('DATABASE.HOSTNAME'),
     // 数据库名
-    'database'        => '',
+    'database'        => Env::get('DATABASE.DATABASE'),
     // 用户名
-    'username'        => 'root',
+    'username'        => Env::get('DATABASE.USERNAME'),
     // 密码
-    'password'        => '',
+    'password'        => Env::get('DATABASE.PASSWORD'),
     // 端口
-    'hostport'        => '',
+    'hostport'        => Env::get('DATABASE.HOSTPORT'),
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
     'params'          => [],
     // 数据库编码默认采用utf8
-    'charset'         => 'utf8',
+    'charset'         => Env::get('DATABASE.CHARSET'),
     // 数据库表前缀
     'prefix'          => '',
     // 数据库调试模式
-    'debug'           => true,
+    'debug'           => Env::get('DATABASE.DEBUG'),
     // 数据库部署方式:0 集中式(单一服务器),1 分布式(主从服务器)
     'deploy'          => 0,
     // 数据库读写是否分离 主从式有效
