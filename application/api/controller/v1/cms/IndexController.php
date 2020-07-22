@@ -3,6 +3,8 @@ namespace app\api\controller\v1\cms;
 
 use think\Controller;
 use think\Db;
+use app\common\enums\ErrorCode;
+use app\common\vo\ResultVo;
 
 class IndexController extends Controller
 {
@@ -19,6 +21,6 @@ class IndexController extends Controller
     public function test(){
         $sql = "select * from user ";
         $res = Db::query($sql);
-        var_dump($res);exit;
+        return ResultVo::success($res);
     }
 }
