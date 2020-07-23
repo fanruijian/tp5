@@ -5,6 +5,7 @@ use think\Controller;
 use think\Db;
 use app\common\enums\ErrorCode;
 use app\common\vo\ResultVo;
+use app\common\utils\RedisUtils;
 
 class IndexController extends Controller
 {
@@ -22,5 +23,12 @@ class IndexController extends Controller
         $sql = "select * from user ";
         $res = Db::query($sql);
         return ResultVo::success($res);
+    }
+
+    public function test2(){
+        $redis = RedisUtils::init();
+        $redis->set('ppp','ooo');
+        $name = $redis->get('ppp');
+        var_dump($name);exit;
     }
 }
